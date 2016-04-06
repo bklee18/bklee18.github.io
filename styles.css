@@ -1,0 +1,49 @@
+h1 {
+  border: blue solid 5px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  font-family: Garamond;
+  font-size: 4em;
+  border-width: ;
+}
+
+#funaki-img {
+  display: block;
+  margin: auto;
+  width: 70%;
+  height: auto;
+}
+
+#nz-image {
+  background-image: url(http://www.estero.co.nz/new/wp-content/uploads/2014/03/45901_new-zealand.jpg);
+}
+
+/*Styling for footer links*/
+
+footer  {
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+.footerlink {
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none;
+  font-family: Verdana;
+  font-weight: bold;
+  color: black;
+  border: 1px purple solid;
+}
+#nba-link {
+  background: orange;
+}
+
+#espn-link {
+  background: #B80000;
+}
+
+#google-link {
+  background: #339933;
+}
