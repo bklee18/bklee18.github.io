@@ -31,7 +31,7 @@ figcaption {
 
 .half-inline-block {
   display: inline-block;
-  max-width: 49.5%;
+  max-width: 49%;
 }
 
 #funaki-img {
@@ -42,12 +42,13 @@ figcaption {
 
 #facts {
   display: inline-block;
-  width: 49.5%;
+  width: 49%;
   vertical-align: top;
 }
 
 #nz-image {
-  background-image: url(http://www.estero.co.nz/new/wp-content/uploads/2014/03/45901_new-zealand.jpg);
+  background-image: url(images/basketball.png);
+  background-size: 100%;
 }
 
 
@@ -94,5 +95,11 @@ footer a {
   }
   h2, h3, h4, h5, h6 {
     font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  main {
+    width:75%;
   }
 }
