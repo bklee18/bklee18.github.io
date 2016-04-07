@@ -1,12 +1,26 @@
-.pageheader {
-  border: blue solid 5px;
+h1 {
+  border-bottom: #000099 solid 5px;
   padding: 20px;
   margin: auto;
   text-align: center;
   font-family: Garamond;
-  font-size: 4em;
+  font-size: 3em;
 }
 
+nav {
+  margin-top: 2%;
+  display: inline-block;
+  width: 15%;
+  vertical-align: top;
+}
+
+main {
+  width: 83%;
+  display:inline-block;
+  border-left: #FF6600 solid 3px;
+  padding-left: 1%;
+  
+}
 figure {
   margin: 0;
 }
@@ -15,26 +29,37 @@ figcaption {
   font-size: .75em;
 }
 
-.inline-block {
+.half-inline-block {
   display: inline-block;
+  max-width: 49.5%;
 }
 
 #funaki-img {
-  width: 50%;
+  max-width: 100%;
   height: auto;
+  vertical-align: top;
 }
 
 #facts {
   display: inline-block;
+  width: 49.5%;
   vertical-align: top;
-  width: 45%;
 }
 
 #nz-image {
   background-image: url(http://www.estero.co.nz/new/wp-content/uploads/2014/03/45901_new-zealand.jpg);
 }
 
+
+
+
 /*Styling for footer links*/
+
+footer {
+  margin-top: 30px;
+  border-top: #000099 solid 5px;
+  padding-top: 2%;
+}
 
 footer a {
   border-radius: 5px;
@@ -42,7 +67,7 @@ footer a {
   text-decoration: none;
   font-family: Verdana;
   font-weight: bold;
-  color: black;
+  color: #000033;
   border: 1px black solid;
 }
 
@@ -58,12 +83,9 @@ footer a {
 }
 
 #google-link {
-  background: #339933;
+  background: #00CCCC;
 }
 
-nav {
-  margin-bottom: 20px;
-}
 
 /*Media Query*/
 @media screen and (max-width: 500px) {
