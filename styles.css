@@ -1,18 +1,33 @@
-h1 {
+.pageheader {
   border: blue solid 5px;
   padding: 20px;
   margin: auto;
   text-align: center;
   font-family: Garamond;
   font-size: 4em;
-  border-width: ;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: .75em;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 #funaki-img {
-  display: block;
-  margin: auto;
-  width: 70%;
+  width: 50%;
   height: auto;
+}
+
+#facts {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
 }
 
 #nz-image {
@@ -21,20 +36,18 @@ h1 {
 
 /*Styling for footer links*/
 
-footer  {
-  display: block;
-  margin: auto;
-  width: 60%;
-}
-
-.footerlink {
+footer a {
   border-radius: 5px;
   padding: 5px;
   text-decoration: none;
   font-family: Verdana;
   font-weight: bold;
   color: black;
-  border: 1px purple solid;
+  border: 1px black solid;
+}
+
+.footerlink {
+  text-align: center;
 }
 #nba-link {
   background: orange;
@@ -46,4 +59,18 @@ footer  {
 
 #google-link {
   background: #339933;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+/*Media Query*/
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  h2, h3, h4, h5, h6 {
+    font-size: 1em;
+  }
 }
