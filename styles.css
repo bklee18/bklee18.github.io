@@ -31,7 +31,7 @@ figcaption {
 
 .half-inline-block {
   display: inline-block;
-  max-width: 49%;
+  width: 49.5%;
 }
 
 #funaki-img {
@@ -40,17 +40,16 @@ figcaption {
   vertical-align: top;
 }
 
-#facts {
+.facts {
   display: inline-block;
   width: 49%;
   vertical-align: top;
 }
 
-#nz-image {
+#basketball-image {
   background-image: url(images/basketball.png);
   background-size: 100%;
 }
-
 
 
 
@@ -60,9 +59,11 @@ footer {
   margin-top: 30px;
   border-top: #000099 solid 5px;
   padding-top: 2%;
+  text-align: center;
 }
 
-footer a {
+
+.footerlink {
   border-radius: 5px;
   padding: 5px;
   text-decoration: none;
@@ -71,12 +72,9 @@ footer a {
   color: #000033;
   border: 1px black solid;
 }
-
-.footerlink {
-  text-align: center;
-}
 #nba-link {
   background: orange;
+ 
 }
 
 #espn-link {
@@ -89,12 +87,33 @@ footer a {
 
 
 /*Media Query*/
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
+  nav {
+    width: 14%;
+  }
+}
+
+@media screen and (max-width: 520px) {
   h1 {
     font-size: 1.5em;
   }
   h2, h3, h4, h5, h6 {
     font-size: 1em;
+  nav {
+    width: 100%;
+    border-bottom: #000099 solid 5px;
+  }
+  main {
+    width: 100%;
+  }
+  figure {
+    width: 100%;
+  }
+  .half-inline-block {
+    width: 100%;
+  }
+  .facts {
+    width: 100%;
   }
 }
 
