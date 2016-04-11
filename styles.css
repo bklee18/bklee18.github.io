@@ -14,10 +14,24 @@ nav {
   vertical-align: top;
 }
 
+.navlink {
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none;
+  font-family: Verdana;
+  font-weight: bold;
+  color: #000033;
+  border: 1px black solid;
+}
+
+#coffeelink {
+  background: #a0522d;
+}
+
 main {
   width: 83%;
   display:inline-block;
-  border-left: #FF6600 solid 3px;
+  border-left: #181818 solid 3px;
   padding-left: 1%;
   
 }
@@ -63,27 +77,7 @@ footer {
 }
 
 
-.footerlink {
-  border-radius: 5px;
-  padding: 5px;
-  text-decoration: none;
-  font-family: Verdana;
-  font-weight: bold;
-  color: #000033;
-  border: 1px black solid;
-}
-#nba-link {
-  background: orange;
- 
-}
 
-#espn-link {
-  background: #B80000;
-}
-
-#google-link {
-  background: #00CCCC;
-}
 
 
 /*Media Query*/
