@@ -12,8 +12,14 @@ nav {
   display: inline-block;
   width: 15%;
   vertical-align: top;
+  font-family: Georgia;
 }
 
+nav h5 {
+  text-align: center;
+  font-size: 1.3em;
+  margin: 2%;
+}
 .navlink {
   border-radius: 5px;
   padding: 5px;
@@ -31,7 +37,15 @@ nav {
 }
 
 #runninglink{
-  background: #008B8B;
+  background: #0066CC;
+}
+
+#onlinesecuritylink {
+  background: #FF3333;
+}
+
+#myimages {
+  background: #606060;
 }
 
 main {
@@ -39,7 +53,6 @@ main {
   display:inline-block;
   border-left: #181818 solid 3px;
   padding-left: 1%;
-  
 }
 figure {
   margin: 0;
