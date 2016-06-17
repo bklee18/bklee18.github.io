@@ -1,0 +1,12 @@
+<p>Question: </p>
+
+<%= @card.question %>
+
+<br>
+
+<form action='/rounds/<%= current_round.id %>' method='post'>
+  <input type="hidden" name="card_id" value=<%= @card.id %>>
+  <input type="text" name="answer">
+  <input type="submit" value="Submit">
+</form>
+
