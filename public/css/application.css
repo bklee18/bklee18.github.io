@@ -1,0 +1,20 @@
+.mar-t-5 {
+  margin-top: 2em;
+}
+
+.mynav {
+  position: fixed;
+  right: 0;
+  font-family: Verdana;
+  letter-spacing: 1.4px;
+}
+
+a{
+  color: #383838;
+}
+
+.mainheading{
+  font-family: Verdana;
+  color: #33CCFF;
+  letter-spacing: 1px;
+}
