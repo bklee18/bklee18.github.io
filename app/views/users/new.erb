@@ -1,8 +1,8 @@
 <h1>Create Your Account:</h1>
 
   <%if @errors%>
-    <%@errors.each do |error|%>
-      <%=error%>
+    <ul><%@errors.each do |error|%>
+      <li><%=error%></li></ul>
      <%end%>
   <%end%>
 
@@ -16,5 +16,8 @@
     <label for="password">Password:</label>
     <input type="password" name="password"><br>
 
-   <input type="submit" value="Create">
+   <input type="submit" value="Create"><br><br>
+
   </form>
+
+  <div><a href="/">Home</a></div>
