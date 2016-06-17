@@ -1,0 +1,10 @@
+<h1>Welcome!</h1>
+<% if login? == true %>
+  <form action="/sessions/logout" method="post">
+    <input type="submit" value="Log out">
+  </form>
+ <% else %>
+  <a href="/sessions/login">Click to Log In.</a>
+  <div><a href="/users/new">Click here to create an account.</a></div>
+<%end%>
+
