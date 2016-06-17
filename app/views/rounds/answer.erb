@@ -1,0 +1,17 @@
+
+<% if @correct %>
+
+  <h1>INCORRECT!</h1>
+  <div>Nice try Dummy. The correct answer is "<%=@correct%>".</div>
+
+<% else %>
+
+  <h1>NICE!</h1>
+  <div>Good job buddy.</div>
+
+<% end %>
+
+<form action='/rounds/<%= current_round.id %>' method='get'>
+    <input type="hidden" name="card_id" value=<%= @card.id %>>
+    <input type="submit" value="Next Question">
+</form>
