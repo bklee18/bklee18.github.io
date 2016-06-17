@@ -3,12 +3,14 @@ def current_deck
 end
 
 def current_round
-  Round.find(session[:round_id])
+  if session[:round_id]
+    Round.find(session[:round_id])
+  end
 end
 
-def current_user
-  User.find(1)
-end
+# def current_user
+#   User.find(1)
+# end
 
 def shuffle
   current_round.cards.shuffle.first.id
