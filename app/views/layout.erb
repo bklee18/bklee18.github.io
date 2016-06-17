@@ -27,14 +27,14 @@
             <% if session[:user_id] %>
               <% user = User.find(session[:user_id]) %>
 
-              <a href ="/profile"> <%= user.username %> </a> <%=" \n |"%>
-              <a href="/logout"> logout</a>                  <%=" \n |"%>
-              <a href="/"> home </a>                         <%=" \n"  %>
+              <a href ="/users/home"> <%= user.username %></a><%=" \n |"%>
+              <a href="/sessions/logout"> logout</a> <%=" \n |"%>
+              <a href="/"> home </a><%=" \n"  %>
             <% else %>
 
-              <a href="/register"> register </a>                     <%=" \n | "%>
-              <a href="/users/new"> login </a>               <%=" \n | "%>
-              <a href="/"> home </a>                    <%=" \n"  %>
+              <a href="/users/new"> register   </a>  <%=" \n | "%>
+              <a href="/sessions/login"> login </a>  <%=" \n | "%>
+              <a href="/"> home                </a>  <%=" \n"  %>
             <% end %>
       </nav>
     </div>

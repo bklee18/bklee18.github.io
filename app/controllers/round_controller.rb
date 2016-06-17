@@ -5,7 +5,7 @@ end
 get '/rounds/:id' do
   if current_round.guesses.length == 0
     @card = current_round.cards.shuffle.first
-    session[:card_id] = @card.id
+    # session[:card_id] = @card.id
     erb :'rounds/show'
   elsif current_round.guesses.where(correct: true).length == current_round.cards.length
     erb :'rounds/result'
@@ -23,7 +23,7 @@ end
 post '/rounds/:id' do
   # raise params.inspect
   @card = Card.find(params[:card_id])
-  if params[:answer] == @card.correct_answer
+  if params[:answer].downcase == @card.correct_answer.downcase
     input = true
   else
     input = false
