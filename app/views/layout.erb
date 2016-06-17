@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -15,9 +15,29 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Brian's Flashcards</title>
 </head>
 <body>
-  <%= yield %>
+  <header role="banner" class="mar-t-5">
+    <h1 class="mainheading">Brian's Flashcards</h1>
+  </header>
+
+    <div>
+      <nav class="mynav">
+            <% if session[:user_id] %>
+              <% user = User.find(session[:user_id]) %>
+
+              <a href ="/profile"> <%= user.username %> </a> <%=" \n |"%>
+              <a href="/logout"> logout</a>                  <%=" \n |"%>
+              <a href="/"> home </a>                         <%=" \n"  %>
+            <% else %>
+
+              <a href="/register"> register </a>                     <%=" \n | "%>
+              <a href="/users/new"> login </a>               <%=" \n | "%>
+              <a href="/"> home </a>                    <%=" \n"  %>
+            <% end %>
+      </nav>
+    </div>
+    <%= yield %>
 </body>
 </html>
