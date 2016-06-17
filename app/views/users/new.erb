@@ -1,10 +1,12 @@
 <h1>Create Your Account:</h1>
 
   <%if @errors%>
-    <p><%=@errors%></p>
+    <%@errors.each do |error|%>
+      <%=error%>
+     <%end%>
   <%end%>
 
-  <form action="/new" method="post">
+  <form action="/users/new" method="post">
     <label for="username">Username:</label>
     <input type="text" name="username"><br>
 

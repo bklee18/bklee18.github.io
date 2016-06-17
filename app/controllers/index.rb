@@ -1,53 +1,56 @@
 get '/' do
-  redirect "/login"
+  erb :index
 end
 
-get '/login' do
+get '/sessions/login' do
   if login?
-    redirect '/home'
+    redirect '/users/home'
   else
-    erb :'marco/login'
+    erb :'sessions/login'
   end
 end
 
-post  '/login' do
+post '/sessions/login' do
+ @errors = []
  @user = User.find_by(username: params[:username])
   if @user
     if @user.authenticate(params[:password])
       session[:user_id]=@user.id
-      redirect '/'
+      redirect '/users/home'
     else
-      @errors = "Incorrect password."
+      @errors << "Incorrect password."
     end
   else
-    @errors = 'No such username.'
+    @errors << 'No such username.'
   end
-  erb :'marco/login'
+  erb :'sessions/login'
 end
 
-get '/new' do
+get '/users/new' do
   if login?
-    erb :'marco/home'
+    erb :'users/home'
   else
-    erb :'marco/new'
+    erb :'users/new'
   end
 end
 
-post '/new' do
+post '/users/new' do
   user = User.new(username:params[:username], email:params[:email], password:params[:password])
   if user.save
-    redirect '/'
-  else
+    redirect '/users/home'
+  elsif
     @errors = user.errors.full_messages
-    erb :'marco/new'
+    erb :'users/new'
+  else
+    redirect '/'
   end
 end
 
-get '/home' do
-  erb :'marco/home'
+get '/users/home' do
+  erb :'users/home'
 end
 
-get '/logout' do
+post '/sessions/logout' do
  session.delete(:user_id)
  redirect '/'
 end
