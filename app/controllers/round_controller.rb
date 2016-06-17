@@ -8,6 +8,10 @@ get '/rounds/:id' do
     # session[:card_id] = @card.id
     erb :'rounds/show'
   elsif current_round.guesses.where(correct: true).length == current_round.cards.length
+    @deck_name = current_round.deck.name
+    @num_of_guesses = current_round.guesses.length
+    @total_cards = current_round.cards.length
+    @first_try = @total_cards - (@num_of_guesses - @total_cards)
     erb :'rounds/result'
   else
     round_card_id = shuffle
