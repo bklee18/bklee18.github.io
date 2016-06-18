@@ -32,7 +32,19 @@ a{
 }
 
 .brianlogo1{
-  max-width: 50%;
+  max-width: 400px;
+  height: auto;
   -webkit-transform: rotate(90deg);
+  margin-top: 3em;
   margin-left: 20em;
+  text-align: center;
+  display: block;
+}
+
+
+.brianh1{
+  position: relative;
+  text-align: center;
+  display: block;
+  color: #FF0099;
 }
