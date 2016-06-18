@@ -22,11 +22,17 @@ a{
   font-size: 2.5em;
 }
 
-img{
+.brianlogo{
   border: 6px solid #FF0099;
   border-radius: 100%;
 }
 
 .nyc {
   background-image: url("/pictures/nyc.jpg")
+}
+
+.brianlogo1{
+  max-width: 50%;
+  -webkit-transform: rotate(90deg);
+  margin-left: 20em;
 }
