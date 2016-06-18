@@ -3,6 +3,7 @@ before do
 end
 
 get '/rounds/:id' do
+  # binding.pry
   if current_round.guesses.length == 0
     @card = current_round.cards.shuffle.first
     # session[:card_id] = @card.id
@@ -20,16 +21,27 @@ get '/rounds/:id' do
 
 end
 
+# post '/rounds/:id' do
+#   @card = Card.find(params[:card_id])
+
+#   if params[:answer].downcase == @card.correct_answer.downcase
+#     input = true
+#   else
+#     input = false
+#   end
+#   Guess.create!(round: @round, card: @card, user: current_user, correct: input)
+
+#   redirect "/rounds/#{current_round.id}"
+# end
+
 post '/rounds/:id' do
-  # raise params.inspect
   @card = Card.find(params[:card_id])
-  if params[:answer].downcase == @card.correct_answer.downcase
-    input = true
-  else
+  if params[:answer].downcase != @round.cards(params[:id]).find(params[:card_id]).correct_answer.downcase
+    @correct = "#{@round.cards(params[:id]).find(params[:card_id]).correct_answer}"
     input = false
+  else
+    input = true
   end
   Guess.create!(round: @round, card: @card, user: current_user, correct: input)
-
-  redirect "/rounds/#{current_round.id}"
+  erb :'rounds/answer'
 end
-
