@@ -4,7 +4,7 @@ end
 
 get '/sessions/login' do
   if login?
-    redirect '/users/home'
+    redirect "/users/#{session[:user_id]}"
   else
     erb :'sessions/login'
   end
@@ -16,7 +16,7 @@ post '/sessions/login' do
   if @user
     if @user.authenticate(params[:password])
       session[:user_id]=@user.id
-      redirect '/users/home'
+      redirect "/users/#{session[:user_id]}"
     else
       @errors << "Incorrect password."
     end
@@ -28,7 +28,7 @@ end
 
 get '/users/new' do
   if login?
-    erb :'users/home'
+    erb :'users/show'
   else
     erb :'users/new'
   end
@@ -38,7 +38,7 @@ post '/users/new' do
   user = User.new(username:params[:username], email:params[:email], password:params[:password])
   if user.save
     session[:user_id] = user.id
-    redirect '/users/home'
+    redirect "/users/#{session[:user_id]}"
   elsif
     @errors = user.errors.full_messages
     erb :'users/new'
@@ -47,9 +47,9 @@ post '/users/new' do
   end
 end
 
-get '/users/home' do
-  erb :'users/home'
-end
+# get '/users/home' do
+#   erb :'users/home'
+# end
 
 get '/sessions/logout' do
  session.delete(:user_id)

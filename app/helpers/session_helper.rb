@@ -1,6 +1,5 @@
 def login?
-  return true if session[:user_id]
-  false
+  User.exists?(session[:user_id])
 end
 
 def register_user
