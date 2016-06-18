@@ -47,10 +47,6 @@ post '/users/new' do
   end
 end
 
-# get '/users/home' do
-#   erb :'users/home'
-# end
-
 get '/sessions/logout' do
  session.delete(:user_id)
  redirect '/'

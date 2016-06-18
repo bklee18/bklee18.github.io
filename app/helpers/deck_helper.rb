@@ -8,11 +8,6 @@ def current_round
   end
 end
 
-# def current_user
-#   User.find(1)
-# end
-
-def shuffle
-  current_round.cards.shuffle.first.id
-  # current_round.cards.
+def shuffled_card
+  current_round.cards.shuffle.first
 end
