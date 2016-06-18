@@ -19,11 +19,11 @@
 </head>
 <body>
   <div class="nyc">
-  <a href = "/"><img class="brian" src="/pictures/brian_logo.png" alt="Brian's beautiful face"></a>
+  <a href = "/"><img class="brianlogo" src="/pictures/brian_logo.png" alt="Brian's beautiful face"></a>
   <header role="banner" class="mar-t-5">
     <h1 class="mainheading">Brian's Fabulous Flashcards</h1>
   </header>
-
+  </div>
     <div>
       <nav class="mynav">
             <% if session[:user_id] %>
@@ -39,7 +39,6 @@
               <a href="/"> home                </a>  <%=" \n"  %>
             <% end %>
       </nav><br>
-    </div>
     </div>
     <%= yield %>
 </body>
