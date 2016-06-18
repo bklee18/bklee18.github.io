@@ -55,3 +55,9 @@ get '/sessions/logout' do
  session.delete(:user_id)
  redirect '/'
 end
+
+get '/users/:id' do
+  @user = User.find(session[:user_id])
+
+  erb :'users/show'
+end

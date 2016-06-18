@@ -1,0 +1,17 @@
+<%= @user.username %><br>
+Total rounds played: <%= @user.rounds.length %><br>
+Total guesses: <%= @user.guesses.length %><br>
+Guesses Correct: <%= @user.guesses.where(correct: true).length %><br>
+
+<!-- how many guesses it took to get a correct answer for each question. if 1, then first guess correct true -->
+
+<br>
+<% first_guess_correct = [] %>
+
+first guess correct per round:
+<% @user.rounds.each do |round| %>
+  <% first_guess_correct << round.guesses.group(:card_id).count.values.count(1) %>
+  <%= round.guesses.group(:card_id).count.values.count(1) %>,
+<% end %>
+<br>
+first guess correct total: <%= first_guess_correct.reduce(:+) %>

@@ -27,7 +27,7 @@
             <% if session[:user_id] %>
               <% user = User.find(session[:user_id]) %>
 
-              <a href ="/users/home"> <%= user.username %></a><%=" \n |"%>
+              <a href ="/users/<%= session[:user_id] %>"> <%= user.username %></a><%=" \n |"%>
               <a href="/sessions/logout"> logout</a> <%=" \n |"%>
               <a href="/"> home </a><%=" \n"  %>
             <% else %>
