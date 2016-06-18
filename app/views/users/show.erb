@@ -1,0 +1,36 @@
+<h1><%= @user.username %>'s Global Stats</h1>
+Total rounds played: <%= @user.rounds.length %><br>
+Total guesses: <%= @user.guesses.length %><br>
+Guesses Correct: <%= @user.guesses.where(correct: true).length %><br>
+
+
+<% first_guess_correct = [] %>
+
+<% @user.rounds.each do |round| %>
+  <% first_guess_correct << round.guesses.group(:card_id).count.values.count(1) %>
+  <% round.guesses.group(:card_id).count.values.count(1) %>
+<% end %>
+
+<br>
+first guess correct total: <%= first_guess_correct.reduce(:+) %>
+
+<h2>Stats per Deck</h2>
+
+<p>All rounds in Brian's deck</p>
+
+<table>
+  <tr>
+    <th>Taken on</th>
+    <th>Cards in Deck</th>
+    <th>Amount of Guesses</th>
+    <th>First Guess Correct</th>
+  </tr>
+  <% @user.rounds.where(deck_id: 1).each do |round| %>
+  <tr>
+    <td><%= round.created_at %></td>
+    <td><%= Deck.find(1).cards.length %></td>
+    <td><%= round.guesses.length %></td>
+    <td><%= round.guesses.group(:card_id).count.values .count(1) %></td>
+  </tr>
+  <% end %>
+</table>
