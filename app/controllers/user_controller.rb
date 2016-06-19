@@ -9,7 +9,10 @@ end
 
 post '/users/new' do
   user = User.new(username:params[:username], email:params[:email], password:params[:password])
-  if user.save
+  if user.username.match(/\Aguest_user\.*/)
+    @errors = ["'guest_user*' is a reserved username, please enter a different username"]
+    erb :'users/new'
+  elsif user.save
     session[:user_id] = user.id
     redirect "/users/#{session[:user_id]}"
   elsif
