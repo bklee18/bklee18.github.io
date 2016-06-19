@@ -1,11 +1,13 @@
-def create_deck(deck_length, questions, answers, name)
-  deck = Deck.create!(name: name)
+def create_deck(deck_length, questions, answers, name, description, author)
+  deck = Deck.create!(name: name, description: description, author: author)
   index = 0
   deck_length.times do
-    Card.create!(deck_id: deck.id, question: questions[index], correct_answer: answers[index])
+    Card.create!(deck: deck, question: questions[index], correct_answer: answers[index])
     index += 1
   end
 end
+
+author = User.create!(username: "admin", password: "password", email: "admin@email.com")
 
 questions_test = [
               "What's Brian's favorite color?",
@@ -59,5 +61,7 @@ r_answer = [
               "Earth"
           ]
 
-create_deck(questions_test.length, questions_test, answers_test, "Brian")
-create_deck(pan_question.length, pan_question, pan_answer, "Pan")
+description_b = "A deck about the life of Brian"
+description_p = "A flash card deck about Pan FACTS"
+create_deck(questions_test.length, questions_test, answers_test, "Brian", description_b, author)
+create_deck(pan_question.length, pan_question, pan_answer, "Pan", description_p, author)

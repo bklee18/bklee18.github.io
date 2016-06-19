@@ -16,21 +16,34 @@ first guess correct total: <%= first_guess_correct.reduce(:+) %>
 
 <h2>Stats per Deck</h2>
 
-<p>All rounds in Brian's deck</p>
-
-<table>
-  <tr>
-    <th>Taken on</th>
-    <th>Cards in Deck</th>
-    <th>Amount of Guesses</th>
-    <th>First Guess Correct</th>
-  </tr>
-  <% @user.rounds.where(deck_id: 1).each do |round| %>
-  <tr>
-    <td><%= round.created_at %></td>
-    <td><%= Deck.find(1).cards.length %></td>
-    <td><%= round.guesses.length %></td>
-    <td><%= round.guesses.group(:card_id).count.values .count(1) %></td>
-  </tr>
+<% if @user.decks %>
+  <% @user.decks.each do |deck| %>
+    <p>All rounds in <%= deck.name %> deck</p>
+    <table border="solid, 2px">
+      <tr>
+        <th>Taken on</th>
+        <th>Cards in Deck</th>
+        <th>Amount of Guesses</th>
+        <th>First Guess Correct</th>
+      </tr>
+      <% @user.rounds.where(deck_id: deck.id).each do |round| %>
+      <tr>
+        <td><%= round.created_at %></td>
+        <td><%= deck.cards.length %></td>
+        <td><%= round.guesses.length %></td>
+        <td><%= round.guesses.group(:card_id).count.values .count(1) %></td>
+      </tr>
+      <% end %>
+    </table>
   <% end %>
-</table>
+<% else %>
+  <h5>No rounds played yet!</h5>
+<% end %><br>
+
+<h3>Your Created Decks: </h3>
+<% if @user.created_decks %>
+  <% @user.created_decks.each do |deck| %>
+    <a href="/decks/<%= deck.id %>"><%= deck.name %></a>
+      <li><%= deck.description %></li><br>
+  <% end %>
+<% end %>

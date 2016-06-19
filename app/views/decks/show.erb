@@ -1,5 +1,16 @@
-<!-- Info about one specific deck -->
+<h3>Deck:  <%= @deck.name %></h3>
 
+<p>Description:  <%= @deck.description %></p>
 
+<a href="/decks/<%= @deck.id %>/cards/">Click here to start</a>
 
-<a href="/decks/<%= current_deck.id %>/cards/">Click here to start</a>
+<% if @author == @user %>
+  <form action="/decks/<%= @deck.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="submit" value="Edit">
+  </form>
+  <form action="/decks/<%= @deck.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+  </form>
+<% end %>

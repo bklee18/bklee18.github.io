@@ -5,6 +5,8 @@ end
 def current_round
   if session[:round_id]
     Round.find(session[:round_id])
+  else
+    nil
   end
 end
 

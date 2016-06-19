@@ -9,6 +9,7 @@ get '/rounds/:id' do
     @total_cards = current_round.cards.length
     @first_try = 0
     current_round.cards.each { |card| @first_try += 1 if card.guesses.length == 1 }
+    session.delete([:round_id])
     erb :'rounds/result'
   else
     round_card = shuffled_card

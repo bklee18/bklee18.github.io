@@ -10,4 +10,8 @@
 
 <br>
 
-<a href="/decks/new">Create a new deck!</a>
+<% if login? %>
+  <a href="/decks/new">Create a new deck!</a>
+<% else %>
+  <p>Make an account or login to make a new deck!</p>
+<% end %>
