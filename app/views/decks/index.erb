@@ -1,16 +1,16 @@
-<h1 class="pd">Playable Decks</h1>
+<h1>Playable Decks</h1>
 
 
 
-<ul>
-  <% @decks.each do |deck| %>
-    <li><a href="/decks/<%= deck.id %>"><%= deck.name %></a></li>
-  <% end %>
-</ul>
+
+<% @decks.each do |deck| %>
+  <li><a href="/decks/<%= deck.id %>"><%= deck.name %></a></li>
+<% end %>
+
 
 <br>
 
-<% if login? %>
+<% if login? && !guest? %>
   <a href="/decks/new">Create a new deck!</a>
 <% else %>
   <p>Make an account or login to make a new deck!</p>

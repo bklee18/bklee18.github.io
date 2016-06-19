@@ -45,7 +45,7 @@ pan_answer = [
               "Pan doesn't need to prepare. He's always ready",
               "Yes",
               "No",
-              ".slice",
+              "Pan",
               "Eggpans",
               "Black/Black",
               "Pantastic"
@@ -65,5 +65,7 @@ r_answer = [
 
 description_b = "A deck about the life of Brian"
 description_p = "A flash card deck about Pan FACTS"
+description_i = "Iullia trivia"
 create_deck(questions_test.length, questions_test, answers_test, "Brian", description_b, author)
 create_deck(pan_question.length, pan_question, pan_answer, "Pan", description_p, author)
+create_deck(r_question.length, r_question, r_answer, "Iullia", description_i, author)

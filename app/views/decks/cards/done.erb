@@ -1,14 +1,12 @@
-<h1>Done adding cards to deck <%= current_deck.name %></h1>
+<h1>Done adding cards to deck '<%= current_deck.name %>'</h1>
 
 <h3>Card Summary: </h3>
 
-<ol>
 <% current_deck.cards.each do |card| %>
   <li>
     <p>Question: <%= card.question %></p>
     <p>Answer: <%= card.correct_answer %></p>
   </li>
 <% end %>
-</ol>
 
-<a href="/"
+<a href="/decks/<%= current_deck.id %>">Play created deck!</a>

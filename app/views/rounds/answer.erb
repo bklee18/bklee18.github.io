@@ -1,14 +1,16 @@
-
+<div class="center">
 <% if @correct %>
 
   <h1>INCORRECT!</h1>
-  <div>Nice try Dummy. The correct answer is "<%=@correct%>".</div>
+  <div class="card_text">Nice try Dummy. The correct answer is "<%=@correct%>".</div>
 
 <% else %>
 
   <h1>NICE!</h1>
-  <div>Good job buddy.</div>
+  <div class="card_text">Good job buddy.</div>
 
 <% end %>
-
-<a href="/rounds/<%= current_round.id %>">Next Question</a>
+<br>
+<br>
+  <a class="button" href="/rounds/<%= current_round.id %>">Next Question</a>
+</div>

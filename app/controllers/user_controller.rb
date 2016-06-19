@@ -2,6 +2,7 @@ get '/users/new' do
   if login? && !guest?
     redirect "/users/#{current_user.id}"
   else
+    @guest = User.find(session[:user_id]) if guest?
     erb :'users/new'
   end
 end

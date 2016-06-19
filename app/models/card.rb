@@ -3,4 +3,6 @@ class Card < ActiveRecord::Base
   has_many :guesses
   has_many :rounds, through: :deck
 
+  validates :question, presence: true
+  validates :correct_answer, presence: true
 end

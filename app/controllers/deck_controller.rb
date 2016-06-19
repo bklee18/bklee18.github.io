@@ -29,10 +29,14 @@ end
 post '/decks' do
   redirect '/404' if !login? || guest?
 
-  deck = Deck.create!(name: params[:name], description: params[:description], author_id: session[:user_id])
-  session[:deck_id] = deck.id
-
-  redirect "/decks/#{deck.id}/cards/new"
+  deck = Deck.new(name: params[:name], description: params[:description], author_id: session[:user_id])
+  if deck.save
+    session[:deck_id] = deck.id
+    redirect "/decks/#{deck.id}/cards/new"
+  else
+    @errors = deck.errors.full_messages
+    erb 'decks/new'
+  end
 end
 
 get "/decks/:id/cards/new" do
@@ -49,6 +53,7 @@ post "/decks/:id/cards" do
     redirect "/decks/#{current_deck.id}/cards/add"
   else
     @errors = card.errors.full_messages
+    @deck = Deck.find(params[:id])
     erb :'/decks/cards/new'
   end
 end
@@ -68,4 +73,12 @@ get '/decks/:id/edit' do
   redirect '/404' if !login? || !authorized_user?(deck: @deck)
 
   erb :'decks/review'
+end
+
+delete '/decks/:id' do
+  redirect '/404' if !login? || !authorized_user?(deck: Deck.find(params[:id]))
+
+  @deck = Deck.find(params[:id])
+  @deck.destroy
+  redirect '/decks'
 end

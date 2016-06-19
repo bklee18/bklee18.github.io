@@ -9,7 +9,7 @@
   letter-spacing: 1.4px;
 }
 
-a{
+nav a {
   color: #FF0099;
   font-size: 1.25em;
 }
@@ -64,3 +64,28 @@ a{
   width: 100em;
 }
 
+h1 {
+  font-family: 'Architects Daughter', cursive;
+}
+
+.card_text {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.8em;
+}
+
+.center {
+  margin: 30px, auto;
+  padding-top: 2%;
+  text-align: center;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none;
+  font-family: 'Architects Daughter', cursive;
+  font-weight: bold;
+  color: #000033;
+  border: 1px black solid;
+  background-color: #FF0099;
+}

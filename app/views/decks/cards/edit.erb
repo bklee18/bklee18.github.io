@@ -1,7 +1,6 @@
 <h3>Edit card</h3>
 
 <form action="/cards/<%= @card.id %>" method="post">
-  <!-- <input type="hidden" name="_method" value="put"> -->
   <li><label for="question">Question: <%= @card.question %></label>
   <input type="text" name="question" placeholder="Enter new question"></li>
   <li><label for="answer">Answer: <%= @card.correct_answer %></label>
