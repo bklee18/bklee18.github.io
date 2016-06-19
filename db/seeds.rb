@@ -19,7 +19,7 @@ questions_test = [
               ]
 
 answers_test = [
-              "Pink",
+              "Green",
               "Hot Pink",
               "Straight",
               "Brandon's",

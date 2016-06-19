@@ -11,7 +11,4 @@
 
 <% end %>
 
-<form action='/rounds/<%= current_round.id %>' method='get'>
-    <input type="hidden" name="card_id" value=<%= @card.id %>>
-    <input type="submit" value="Next Question">
-</form>
+<a href="/rounds/<%= current_round.id %>">Next Question</a>

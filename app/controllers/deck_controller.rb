@@ -1,7 +1,3 @@
-get '/session-viewer' do
-  session.inspect
-end
-
 get '/decks' do
   @decks = Deck.all
 
@@ -9,7 +5,7 @@ get '/decks' do
 end
 
 get '/decks/new' do
-  redirect '/404' if !login?
+  redirect '/404' if !login? || guest?
   erb :'decks/new'
 end
 
@@ -20,9 +16,10 @@ get '/decks/:id' do
   erb :'decks/show'
 end
 
-get '/decks/:id/cards/' do
+get '/decks/:id/cards' do
   session[:deck_id] = params[:id]
-  user_id = session[:user_id] || 0
+  guest_user(session[:session_id]) if !login?
+  user_id = session[:user_id]
   round = Round.create!(user_id: user_id, deck_id: current_deck.id)
   session[:round_id] = round.id
 
@@ -30,7 +27,7 @@ get '/decks/:id/cards/' do
 end
 
 post '/decks' do
-  redirect '/404' if !login?
+  redirect '/404' if !login? || guest?
 
   deck = Deck.create!(name: params[:name], description: params[:description], author_id: session[:user_id])
   session[:deck_id] = deck.id
@@ -39,14 +36,14 @@ post '/decks' do
 end
 
 get "/decks/:id/cards/new" do
-  redirect '/404' if !login?
+  redirect '/404' if !login? || !authorized_user?(deck: Deck.find(params[:id]))
   @deck = current_deck
 
   erb :'/decks/cards/new'
 end
 
 post "/decks/:id/cards" do
-  redirect '/404' if !login?
+  redirect '/404' if !login? || !authorized_user?(deck: Deck.find(params[:id]))
   card = Card.new(deck: current_deck, question: params[:question], correct_answer: params[:answer])
   if card.save
     redirect "/decks/#{current_deck.id}/cards/add"
@@ -57,18 +54,18 @@ post "/decks/:id/cards" do
 end
 
 get "/decks/:id/cards/add" do
-  redirect '/404' if !login?
+  redirect '/404' if !login? || !authorized_user?(deck: Deck.find(params[:id]))
   erb :'decks/cards/add'
 end
 
 get "/decks/:id/cards/done" do
-  redirect '/404' if !login?
+  redirect '/404' if !login? || !authorized_user?(deck: Deck.find(params[:id]))
   erb :'decks/cards/done'
 end
 
 get '/decks/:id/edit' do
-  redirect '/404' if !login?
   @deck = Deck.find(params[:id])
+  redirect '/404' if !login? || !authorized_user?(deck: @deck)
 
   erb :'decks/review'
 end

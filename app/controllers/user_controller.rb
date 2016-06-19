@@ -1,6 +1,6 @@
 get '/users/new' do
-  if login?
-    erb :'users/show'
+  if login? && !guest?
+    redirect "/users/#{current_user.id}"
   else
     erb :'users/new'
   end
@@ -17,11 +17,6 @@ post '/users/new' do
   else
     redirect '/'
   end
-end
-
-get '/sessions/logout' do
- session.delete(:user_id)
- redirect '/'
 end
 
 get '/users/:id' do

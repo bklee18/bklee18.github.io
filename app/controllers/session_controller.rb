@@ -1,5 +1,5 @@
 get '/sessions/login' do
-  if login?
+  if login? && !guest?
     redirect "/users/#{session[:user_id]}"
   else
     erb :'sessions/login'
@@ -20,4 +20,9 @@ post '/sessions/login' do
     @errors << 'No such username.'
   end
   erb :'sessions/login'
+end
+
+get '/sessions/logout' do
+ session.clear
+ redirect '/'
 end
