@@ -53,3 +53,7 @@ end
 get "/decks/:id/cards/add" do
   erb :'decks/cards/add'
 end
+
+get "/decks/:id/cards/done" do
+  erb :'decks/cards/done'
+end
