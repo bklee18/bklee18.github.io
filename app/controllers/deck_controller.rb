@@ -66,7 +66,7 @@ get "/decks/:id/cards/done" do
   erb :'decks/cards/done'
 end
 
-put '/decks/:id' do
+get '/decks/:id/edit' do
   redirect '/404' if !login?
   @deck = Deck.find(params[:id])
 

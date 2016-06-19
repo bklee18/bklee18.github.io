@@ -3,6 +3,8 @@ before do
 end
 
 get '/rounds/:id' do
+  redirect '/404' if !Round.exists?(params[:id])
+  redirect '/404' if round_user?(params[:id])
   if current_round.guesses.where(correct: true).length == current_round.cards.length
     @deck_name = current_round.deck.name
     @num_of_guesses = current_round.guesses.length
