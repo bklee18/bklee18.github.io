@@ -7,7 +7,8 @@ get '/rounds/:id' do
     @deck_name = current_round.deck.name
     @num_of_guesses = current_round.guesses.length
     @total_cards = current_round.cards.length
-    @first_try = @total_cards - (@num_of_guesses - @total_cards)
+    @first_try = 0
+    current_round.cards.each { |card| @first_try += 1 if card.guesses.length == 1 }
     erb :'rounds/result'
   else
     round_card = shuffled_card
