@@ -18,7 +18,7 @@ questions_test = [
 answers_test = [
               "Pink",
               "Hot Pink",
-              "Long",
+              "Straight",
               "Brandon's",
               "No"
               ]
@@ -31,7 +31,8 @@ pan_question = [
               "Does money in Brian's wallet? (No/No)",
               "Pan has won Iron Chef using only what cooking utensil?",
               "What's Pan's favorite vegetable?",
-              "Since Pan doesn't make mistakes, what color scheme does he code in? (Hint: He doesn't make mistakes)"
+              "Since Pan doesn't make mistakes, what color scheme does he code in? (Hint: He doesn't make mistakes)",
+              "What's Pan's favorite word?"
               ]
 
 pan_answer = [
@@ -42,8 +43,21 @@ pan_answer = [
               "No",
               ".slice",
               "Eggpans",
-              "Black/Black"
+              "Black/Black",
+              "Pantastic"
               ]
+
+r_question = [
+              "Who are Iullia's favorite students?",
+              "What's Iullia's favorite type of food?",
+              "Where is from Iullia from?"
+            ]
+
+r_answer = [
+              "Brandon and Brian",
+              "We don't know",
+              "Earth"
+          ]
 
 create_deck(questions_test.length, questions_test, answers_test, "Brian")
 create_deck(pan_question.length, pan_question, pan_answer, "Pan")

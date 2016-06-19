@@ -1,0 +1,13 @@
+<h1>Create a new deck</h1>
+
+<% @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<form action="/decks" method="post">
+  <label for="name">Deck Title: </label>
+  <input type="text" name="name">
+  <input type="submit" name="Create Deck">
+</form>
