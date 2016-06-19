@@ -14,7 +14,8 @@ questions_test = [
               "What's Jeffrey's favorite color?",
               "What's Brian's favorite hairstyle on a girl?",
               "What's Brian's favorite hairstyle on a guy?",
-              "Does money in Brian's wallet? (Yes/No)"
+              "Does money in Brian's wallet? (Yes/No)",
+              "Brian getting a girlfriend: 'stretch goal' or 'in progress'?"
               ]
 
 answers_test = [
@@ -22,7 +23,8 @@ answers_test = [
               "Hot Pink",
               "Straight",
               "Brandon's",
-              "No"
+              "No",
+              "IN PROGRESS"
               ]
 
 pan_question = [

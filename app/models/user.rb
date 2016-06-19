@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
 
-  def guest_user
-    @guest ||= Guest.new
-  end
+  # def guest_user
+  #   @guest ||= Guest.new
+  # end
 
 end
