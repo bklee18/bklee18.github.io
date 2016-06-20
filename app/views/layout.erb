@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  <script src="/js/application.js"></script>
+
+  <title>Brian's Flashcards</title>
+</head>
+<body>
+  <div class="nyc">
+  <a href = "/"><img class="brianlogo" src="/pictures/brian_logo.png" alt="Brian's beautiful face"></a>
+  <header role="banner" class="mar-t-5">
+    <h1 class="mainheading">Brian's Fabulous Flashcards</h1>
+  </header>
+  </div>
+    <div>
+      <nav class="mynav">
+            <% if session[:user_id] && !guest? %>
+              <% user = User.find(session[:user_id]) %>
+
+              <a href ="/users/<%= session[:user_id] %>"> <%= user.username %></a><%=" \n |"%>
+              <a href="/sessions/logout"> logout</a> <%=" \n |"%>
+              <a href="/"> home </a><%=" \n"  %>
+            <% else %>
+
+              <a href="/users/new"> register   </a>  <%=" \n | "%>
+              <a href="/sessions/login"> login </a>  <%=" \n | "%>
+              <a href="/"> home                </a>  <%=" \n"  %>
+            <% end %>
+      </nav><br>
+    </div>
+    <div class="center card_text">
+      <%= yield %>
+    </div>
+</body>
+</html>

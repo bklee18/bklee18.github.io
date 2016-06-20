@@ -1,0 +1,17 @@
+<h1>Create card <%= @deck.cards.length + 1 %> for deck <%= @deck.name %></h1>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+<% end %>
+
+<form action="/decks/<%= @deck.id %>/cards" method="post">
+  <label for="question">Question: </label>
+  <input type="text" name="question"><br>
+
+  <label for="answer">Answer: </label>
+  <input type="text" name="answer"><br>
+
+  <input type="submit" value="Add Card">
+</form>

@@ -1,0 +1,23 @@
+<div class="container">
+<h1>Log In:</h1>
+  <%if @errors%>
+    <ul><%@errors.each do |error|%>
+      <li><%=error%></li></ul>
+     <%end%>
+  <%end%>
+
+  <form action="/sessions/login" method="post">
+
+    <label for="username">Username:</label>
+    <input type="text" name="username"><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password"><br>
+
+    <input type="submit" value="Login"><br><br>
+
+  </form>
+
+    <div><a href="/users/new">Click here to create an account.</a></div>
+
+</div>

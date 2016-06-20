@@ -1,0 +1,30 @@
+get '/users/new' do
+  if login? && !guest?
+    redirect "/users/#{current_user.id}"
+  else
+    @guest = User.find(session[:user_id]) if guest?
+    erb :'users/new'
+  end
+end
+
+post '/users/new' do
+  user = User.new(username:params[:username], email:params[:email], password:params[:password])
+  if user.username.match(/\Aguest_user\.*/)
+    @errors = ["'guest_user*' is a reserved username, please enter a different username"]
+    erb :'users/new'
+  elsif user.save
+    session[:user_id] = user.id
+    redirect "/users/#{session[:user_id]}"
+  elsif
+    @errors = user.errors.full_messages
+    erb :'users/new'
+  else
+    redirect '/'
+  end
+end
+
+get '/users/:id' do
+  @user = User.find(session[:user_id])
+
+  erb :'users/show'
+end
